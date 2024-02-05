@@ -7,9 +7,10 @@ blueprint:
       name: Light
       description: Light that will turn on at sunset.
       selector:
-      entity:
-        filter:
-          - domain: light
+        target:
+          entity:
+            filter:
+              - domain: light
 
 trigger:
   - platform: sun
