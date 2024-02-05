@@ -2,7 +2,6 @@ blueprint:
   name: Notify Devices At A Time.
   description: Notifications But Extra.
   domain: automation
-  alias: RSZEE
   input:
     time:
       name: Time
