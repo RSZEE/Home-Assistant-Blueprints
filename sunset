@@ -3,7 +3,7 @@ blueprint:
   description: Turn a light on at sunset.
   domain: automation
   input:
-    light:
+    light_input:
       name: Light
       description: Light that will turn on at sunset.
       selector:
@@ -20,4 +20,4 @@ action:
     metadata: {}
     data: {}
     target:
-      entity_id: !input light
+      entity_id: !input light_input
