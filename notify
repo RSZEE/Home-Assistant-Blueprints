@@ -18,10 +18,10 @@ blueprint:
 
 trigger:
   - platform: time
-    at: !time
+    at: !input time
 condition: []
 action:
-  - service: !notify
+  - service: !input notify
     metadata: {}
     data: {}
    
