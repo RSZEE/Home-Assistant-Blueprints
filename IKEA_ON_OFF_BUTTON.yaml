@@ -1,0 +1,88 @@
+blueprint:
+  name: Ikea Tradfri On/Off
+  description: For Ikea E1743 Devices.
+  domain: automation
+  author: RSZEE
+  input:
+    controller_device:
+      name: Remote
+      selector:
+        device: 
+          intergration: zha
+          manufacturer: IKEA of Sweden
+          model: Tradfri on/off switch
+          multiple: false
+    button_on_short:
+      name: On Button Pressed
+      description: When you press the | button.
+      default: []
+      selector:
+        action: {}
+    button_off_short:
+      name: Off Button Pressed
+      description: When you press the 0 button.
+      default: []
+      selector:
+        action: {}
+    button_on_long:
+      name: On Button Hold
+      description: When you hold the | button.
+      default: []
+      selector:
+        action: {}
+    button_off_long:
+      name: Off Button Hold
+      description: When you hold the 0 button.
+      default: []
+      selector:
+        action: {}
+mode: restart
+max_exceeded: silent
+trigger:
+  - device_id: !input controller_device
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: "on"
+  - device_id: !input controller_device 
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+    id: "Off"
+  - device_id: !input controller_device
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: dim_up
+    id: long_on
+  - device_id: !input controller_device
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: dim_down
+    id: long_off
+condition: []
+action:
+  - if:
+      - condition: trigger
+        id:
+          - "on"
+    then: !input button_on_short
+  - if:
+      - condition: trigger
+        id:
+          - "Off"
+    then: !input button_off_short
+  - if:
+      - condition: trigger
+        id:
+          - long_on
+    then: !input button_on_long:
+  - if:
+      - condition: trigger
+        id:
+          - long_off
+    then: !input button_off_long:
+mode: single
