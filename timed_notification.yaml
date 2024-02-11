@@ -15,7 +15,7 @@ blueprint:
       selector:
         device:
           integration: mobile_app
-    source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/edit/main/timed_notification.yaml
+  source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/edit/main/timed_notification.yaml
 mode: single
 trigger:
   - platform: time
