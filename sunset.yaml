@@ -20,6 +20,7 @@ blueprint:
           max: 600
           unit_of_measurement: Minutes
       default: 0
+  source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/edit/main/sunset.yaml
 mode: single
 trigger:
   - platform: sun
