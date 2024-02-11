@@ -1,0 +1,33 @@
+blueprint:
+  name: Sunset Lights
+  description: Turn On Light At Sunset
+  domain: automation
+  author: RSZEE
+  input:
+    light_entity:
+      name: Light to turn on.
+      selector:
+        device:
+          entity:
+            domain: light
+    offset_time:
+      name: Minutes after sunset.
+      description: How precise you want the automation to be.
+      selector:
+        number:
+          mode: slider
+          min: 0
+          max: 600
+          unit_of_measurement: Minutes
+      default: 0
+mode: single
+trigger:
+  - platform: sun
+    event: sunset
+    offset: !input offset_time
+condition: []
+action:
+  - service: light.turn_on
+    target:
+      device_id: !input light_entity
+    data: {}
