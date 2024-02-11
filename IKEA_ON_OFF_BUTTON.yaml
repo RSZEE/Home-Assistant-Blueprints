@@ -9,6 +9,7 @@ blueprint:
       selector:
         device: 
           manufacturer: IKEA of Sweden
+          model: TRADFRI on/off switch
           multiple: false
     button_on_short:
       name: On Button Pressed
