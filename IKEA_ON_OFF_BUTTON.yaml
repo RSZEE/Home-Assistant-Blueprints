@@ -4,13 +4,11 @@ blueprint:
   domain: automation
   author: RSZEE
   input:
-    controller_device:
+    remote:
       name: Remote
       selector:
         device: 
-          intergration: zha
           manufacturer: IKEA of Sweden
-          model: Tradfri on/off switch
           multiple: false
     button_on_short:
       name: On Button Pressed
@@ -39,25 +37,25 @@ blueprint:
 mode: restart
 max_exceeded: silent
 trigger:
-  - device_id: !input controller_device
+  - device_id: !input remote
     domain: zha
     platform: device
     type: remote_button_short_press
     subtype: turn_on
     id: "on"
-  - device_id: !input controller_device 
+  - device_id: !input remote
     domain: zha
     platform: device
     type: remote_button_short_press
     subtype: turn_off
     id: "Off"
-  - device_id: !input controller_device
+  - device_id: !input remote
     domain: zha
     platform: device
     type: remote_button_long_press
     subtype: dim_up
     id: long_on
-  - device_id: !input controller_device
+  - device_id: !input remote
     domain: zha
     platform: device
     type: remote_button_long_press
