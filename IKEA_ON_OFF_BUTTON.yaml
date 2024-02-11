@@ -79,10 +79,10 @@ action:
       - condition: trigger
         id:
           - long_on
-    then: !input button_on_long:
+    then: !input button_on_long
   - if:
       - condition: trigger
         id:
           - long_off
-    then: !input button_off_long:
+    then: !input button_off_long
 mode: single
