@@ -1,0 +1,63 @@
+blueprint:
+  name: Ikea Tradfri Shortcut
+  description: For Ikea Shortcut Button Devices.
+  domain: automation
+  author: RSZEE
+  input:
+    remote:
+      name: Remote
+      selector:
+        device:
+          manufacturer: IKEA of Sweden
+          model: TRADFRI SHORTCUT Button
+          multiple: false
+    button_short:
+      name: Tap
+      selector:
+        action: {}
+    button_double:
+      name: Double Tap
+      selector:
+        action: {}
+    button_long:
+      name: Double Tap
+      selector:
+        action: {}
+  source_url: 
+mode: single
+trigger:
+  - device_id: !input remote
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: tap
+  - device_id: !input remote
+    domain: zha
+    platform: device
+    type: remote_button_double_press
+    subtype: turn_on
+    id: double-tap
+  - device_id: !input remote
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: dim_up
+    id: long_tap
+condition: []
+action:
+  - if:
+      - condition: trigger
+        id:
+          - tap
+    then: !input button_short
+  - if:
+      - condition: trigger
+        id:
+          - double-tap
+    then: !input button_double
+  - if:
+      - condition: trigger
+        id:
+          - long_tap
+    then: !input button_long
