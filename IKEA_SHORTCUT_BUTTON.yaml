@@ -23,7 +23,7 @@ blueprint:
       name: Double Tap
       selector:
         action: {}
-  source_url: 
+  source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/blob/main/IKEA_SHORTCUT_BUTTON.yaml 
 mode: single
 trigger:
   - device_id: !input remote
