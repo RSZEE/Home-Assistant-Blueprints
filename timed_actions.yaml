@@ -1,0 +1,38 @@
+blueprint:
+  name: Timed Actions
+  description: To time devices to turn on/off or to do anything.
+  domain: automation
+  author: RSZEE
+  input:
+    time:
+      name: Time (1)
+    time_2:
+      name: Time (2)
+    time_choose:
+      name: Time action (1)
+      selector:
+        action: {}
+    time_choose_2:
+      name: Time action (2)
+      selector:
+        action: {}
+mode: single
+trigger:
+  - platform: time
+    at: !input time
+    id: "on"
+  - platform: time
+    at: !input time_2
+    id: "off"
+condition: []
+action:
+  - if:
+      - condition: trigger
+        id:
+          - "on"
+    then: !input time_choose
+  - if:
+      - condition: trigger
+        id:
+          - "off"
+    then: !input time_choose_2
