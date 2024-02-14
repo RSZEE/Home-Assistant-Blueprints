@@ -14,14 +14,17 @@ blueprint:
     button_short:
       name: Tap
       selector:
+      default: []
         action: {}
     button_double:
       name: Double Tap
       selector:
+      default: []
         action: {}
     button_long:
       name: Long Tap
       selector:
+      default: []
         action: {}
   source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/blob/main/IKEA_SHORTCUT_BUTTON.yaml 
 mode: single
