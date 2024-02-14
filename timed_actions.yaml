@@ -9,16 +9,13 @@ blueprint:
       default: []
     time_2:
       name: Time (2)
-      default: []
     time_choose:
       name: Time action (1)
       selector:
-      default: []
         action: {}
     time_choose_2:
       name: Time action (2)
       selector:
-      default: []
         action: {}
   source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/blob/main/timed_actions.yaml
 mode: single
