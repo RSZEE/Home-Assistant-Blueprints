@@ -16,7 +16,7 @@ blueprint:
       name: Time action (2)
       selector:
         action: {}
-  souce_url: https://github.com/RSZEE/Home-Assistant-Blueprints/blob/main/timed_actions.yaml
+  source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/blob/main/timed_actions.yaml
 mode: single
 trigger:
   - platform: time
