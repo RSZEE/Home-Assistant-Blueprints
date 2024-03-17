@@ -1,0 +1,25 @@
+blueprint:
+  name: Action On Motion Clear
+  description: For Doing Things When there is no motion.
+  domain: automation
+  author: RSZEE
+  input: 
+    motion_sensor:
+      name: Motion Sensor 
+      selector: 
+          entity:
+            filter:
+              - domain: binary_sensor
+                device_class: motion
+    action:
+      name: Action
+      selector:
+        action: {}
+mode: single
+trigger:
+  - platform: state
+    entity_id: !input motion_sensor 
+    from: "on"
+    to: "off"
+condition: []
+action: !input action
