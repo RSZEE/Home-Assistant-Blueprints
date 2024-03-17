@@ -15,6 +15,7 @@ blueprint:
       name: Action
       selector:
         action: {}
+  source_url: https://github.com/RSZEE/Home-Assistant-Blueprints/blob/main/motion_on_detection.yaml
 mode: single
 trigger:
   - platform: state
